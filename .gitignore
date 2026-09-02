@@ -34,3 +34,6 @@ Thumbs.db
 
 # artefacts de build/verif locaux
 .tmpcheck/
+
+# dumps API temporaires
+.t/
