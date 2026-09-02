@@ -176,10 +176,19 @@ class ExercisePanel(QWidget):
 
     # --- Verification --------------------------------------------
     def _on_check_clicked(self) -> None:
-        if self._exercise and self._exercise.type == ExerciseType.PREDICT:
+        # Le bouton "Verifier" du panneau delegue a la fenetre principale, qui
+        # fournit le contenu de l'editeur puis rappelle `verify()`.
+        self.check_requested.emit()
+
+    def verify(self, source: str) -> None:
+        """Point d'entree unique de la verification (bouton panneau, bouton
+        barre d'outils, raccourci Ctrl+Entree). Aiguille selon le type."""
+        if self._exercise is None:
+            return
+        if self._exercise.type == ExerciseType.PREDICT:
             self._check_prediction()
         else:
-            self.check_requested.emit()
+            self.run_check_with_source(source)
 
     def _check_prediction(self) -> None:
         checked = self._choice_group.checkedButton()
@@ -190,7 +199,7 @@ class ExercisePanel(QWidget):
         self.render_report(report)
 
     def run_check_with_source(self, source: str) -> None:
-        """Lance la verification du code fourni (appelee par la fenetre principale)."""
+        """Lance la verification du code fourni dans un thread de travail."""
         if not self._exercise:
             return
         self._check_button.setEnabled(False)

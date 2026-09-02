@@ -328,7 +328,8 @@ class MainWindow(QMainWindow):
         if exercise is None:
             QMessageBox.information(self, "Pystart", "Selectionne un exercice a gauche d'abord.")
             return
-        self._panel.run_check_with_source(self._editor.toPlainText())
+        # `verify()` aiguille : quiz PREDICT (choix radio) ou verification du code.
+        self._panel.verify(self._editor.toPlainText())
 
     def _record_last_result(self, report) -> None:
         """Appele (signal check_completed) quand une verification se termine."""
