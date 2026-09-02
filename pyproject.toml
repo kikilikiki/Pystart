@@ -44,6 +44,9 @@ version = { attr = "app.__version__" }
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+# Ajoute la racine du projet a sys.path pour que `import app` fonctionne
+# quel que soit le mode de lancement (pytest, python -m pytest, CI).
+pythonpath = ["."]
 
 [tool.ruff]
 line-length = 100

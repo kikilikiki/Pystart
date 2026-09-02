@@ -41,7 +41,7 @@ jobs:
       - name: Tests (pytest)
         env:
           QT_QPA_PLATFORM: offscreen
-        run: pytest -q
+        run: python -m pytest -q
 
       - name: Verifier que la version est coherente
         run: |
