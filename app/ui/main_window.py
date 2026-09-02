@@ -73,6 +73,9 @@ class MainWindow(QMainWindow):
         self._profile = self._resolve_profile()
         self._courses: list[Course] = []
         self._runner = ProcessRunner(self)
+        # Brouillons de code, un par exercice (voir _load_starter_code).
+        self._drafts: dict[str, str] = self._load_drafts()
+        self._active_draft_id: str | None = None
 
         self.setWindowTitle(f"Pystart {__version__}")
         self.resize(1280, 820)
@@ -168,6 +171,7 @@ class MainWindow(QMainWindow):
         self._add_action(run_menu, "Arreter", "Shift+F5", self._runner.stop)
         self._add_action(run_menu, "Verifier l'exercice", "Ctrl+Return", self._verify_current_exercise)
         run_menu.addSeparator()
+        self._add_action(run_menu, "Recharger le code de depart", None, self._reload_starter_code)
         self._add_action(run_menu, "Effacer le terminal", None, self._terminal.clear)
 
         teacher_menu = menu.addMenu("&Professeur")
@@ -236,6 +240,11 @@ class MainWindow(QMainWindow):
         if course is None:
             return
 
+        # On quitte peut-etre un exercice : sauvegarde son brouillon.
+        if kind != "exercise":
+            self._save_active_draft()
+            self._active_draft_id = None
+
         if kind == "course":
             summary = self._course_summary(course)
             self._panel.show_welcome(summary)
@@ -269,17 +278,69 @@ class MainWindow(QMainWindow):
         lines += ["", "Choisis une lecon ou un exercice dans la liste de gauche."]
         return "\n".join(lines)
 
-    # --- Editeur / execution -----------------------------------
+    # --- Editeur / brouillons par exercice ----------------------
+    #
+    # Chaque exercice garde son propre "brouillon" : le code que l'utilisateur
+    # a ecrit. Quand on change d'exercice, on sauvegarde le brouillon courant
+    # et on recharge celui de l'exercice choisi (ou son code de depart la
+    # premiere fois). Les brouillons sont aussi ecrits sur disque
+    # (drafts.json) pour survivre a une fermeture de l'application.
+
+    def _save_active_draft(self) -> None:
+        if self._active_draft_id is not None:
+            self._drafts[self._active_draft_id] = self._editor.toPlainText()
+            self._persist_drafts()
+
     def _load_starter_code(self, code: str) -> None:
-        if self._editor.toPlainText().strip() and self._editor.toPlainText() != code:
-            answer = QMessageBox.question(
-                self,
-                "Charger le code de depart",
-                "Remplacer le contenu de l'editeur par le code de depart de l'exercice ?",
+        exercise = self._panel.current_exercise
+        if exercise is None:
+            return
+        if self._active_draft_id and self._active_draft_id != exercise.id:
+            self._drafts[self._active_draft_id] = self._editor.toPlainText()
+        self._active_draft_id = exercise.id
+        self._editor.setPlainText(self._drafts.get(exercise.id, code))
+        self._persist_drafts()
+
+    def _reload_starter_code(self) -> None:
+        """Menu : revenir au code de depart de l'exercice courant."""
+        exercise = self._panel.current_exercise
+        if exercise is None:
+            self._editor.clear()
+            return
+        answer = QMessageBox.question(
+            self,
+            "Recharger le code de depart",
+            "Remplacer ton code par le code de depart d'origine de l'exercice ?",
+        )
+        if answer == QMessageBox.StandardButton.Yes:
+            self._editor.setPlainText(exercise.starter_code)
+
+    def _drafts_path(self):
+        from app.core import paths
+
+        return paths.app_data_dir() / "drafts.json"
+
+    def _load_drafts(self) -> dict[str, str]:
+        import json
+
+        path = self._drafts_path()
+        if not path.exists():
+            return {}
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            return {str(k): str(v) for k, v in data.items()} if isinstance(data, dict) else {}
+        except (json.JSONDecodeError, OSError):
+            return {}
+
+    def _persist_drafts(self) -> None:
+        import json
+
+        try:
+            self._drafts_path().write_text(
+                json.dumps(self._drafts, ensure_ascii=False, indent=1), encoding="utf-8"
             )
-            if answer != QMessageBox.StandardButton.Yes:
-                return
-        self._editor.setPlainText(code)
+        except OSError:
+            pass
 
     def _new_file(self) -> None:
         self._editor.clear()
@@ -463,5 +524,6 @@ class MainWindow(QMainWindow):
 
     def closeEvent(self, event) -> None:  # noqa: N802
         self._runner.stop()
+        self._save_active_draft()
         self._config.save()
         super().closeEvent(event)

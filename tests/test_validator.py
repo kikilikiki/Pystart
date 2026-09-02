@@ -2,9 +2,21 @@
 
 import pytest
 
-from app.courses.loader import load_all_courses
+from app.core import paths
+from app.courses.loader import load_course_from_dir
 from app.exercises.models import Check, Exercise, ExerciseType
 from app.exercises.validator import validate, validate_prediction
+
+
+def _bundled_courses():
+    out = []
+    for child in sorted(paths.default_courses_dir().iterdir()):
+        if (child / "course.json").is_file():
+            out.append(load_course_from_dir(child))
+    return out
+
+
+_BUNDLED = _bundled_courses()
 
 
 def _exercise(**kwargs) -> Exercise:
@@ -49,10 +61,10 @@ def test_prediction_check():
 
 
 @pytest.mark.parametrize("course_id,exercise_id", [
-    (c.id, e.id) for c in load_all_courses() for e in c.exercises
+    (c.id, e.id) for c in _BUNDLED for e in c.exercises
 ])
 def test_reference_solution_passes(course_id, exercise_id):
-    course = next(c for c in load_all_courses() if c.id == course_id)
+    course = next(c for c in _BUNDLED if c.id == course_id)
     exercise = course.exercise_by_id(exercise_id)
     if exercise.type == ExerciseType.PREDICT:
         expected = next(c.value for c in exercise.checks if c.kind == "choice_equals")

@@ -80,8 +80,27 @@ def _parse_sha256_from_notes(notes: str, asset_name: str) -> str | None:
     return match.group(1).lower() if match else None
 
 
+def _no_release_info() -> UpdateInfo:
+    """Renvoye quand le depot n'a encore aucune release publiee (HTTP 404).
+
+    Ce n'est pas une erreur : l'utilisateur est simplement deja a jour.
+    """
+    return UpdateInfo(
+        latest_version=__version__,
+        current_version=__version__,
+        release_notes="",
+        download_url="",
+        asset_name="",
+        asset_size=0,
+    )
+
+
 def check(session: requests.Session | None = None) -> UpdateInfo:
-    """Interroge l'API GitHub et renvoie les infos de la derniere release."""
+    """Interroge l'API GitHub et renvoie les infos de la derniere release.
+
+    Distingue les differents cas d'echec pour afficher un message utile :
+    pas de reseau, DNS, certificat SSL, quota GitHub depasse, aucune release.
+    """
     http = session or requests.Session()
     try:
         response = http.get(
@@ -89,14 +108,40 @@ def check(session: requests.Session | None = None) -> UpdateInfo:
             headers={"User-Agent": USER_AGENT, "Accept": "application/vnd.github+json"},
             timeout=REQUEST_TIMEOUT,
         )
+    except requests.exceptions.SSLError as error:
+        raise UpdateError(
+            "Erreur de certificat SSL en contactant GitHub. "
+            "Verifie l'horloge systeme et ton antivirus/proxy."
+        ) from error
+    except requests.exceptions.ConnectionError as error:
+        raise UpdateError(
+            "Pas de connexion a GitHub. Verifie ta connexion Internet, "
+            "puis reessaie."
+        ) from error
+    except requests.exceptions.Timeout as error:
+        raise UpdateError("GitHub ne repond pas (delai depasse). Reessaie plus tard.") from error
+    except requests.RequestException as error:
+        raise UpdateError(f"Impossible de contacter GitHub : {error}") from error
+
+    # 404 sur /releases/latest = aucune release publiee sur le depot.
+    if response.status_code == 404:
+        return _no_release_info()
+    if response.status_code == 403 and "rate limit" in response.text.lower():
+        raise UpdateError(
+            "Trop de requetes vers GitHub pour l'instant (quota atteint). "
+            "Reessaie dans une heure."
+        )
+
+    try:
         response.raise_for_status()
         payload = response.json()
     except (requests.RequestException, json.JSONDecodeError) as error:
-        raise UpdateError(f"Impossible de contacter GitHub : {error}") from error
+        raise UpdateError(f"Reponse inattendue de GitHub : {error}") from error
 
     tag = str(payload.get("tag_name", "")).lstrip("vV")
     if not tag:
-        raise UpdateError("La release GitHub n'a pas de numero de version (tag_name).")
+        # Release sans tag exploitable : on considere qu'il n'y a rien de neuf.
+        return _no_release_info()
 
     notes = str(payload.get("body", "") or "")
     # Une release est "obligatoire" si ses notes contiennent un marqueur explicite.
