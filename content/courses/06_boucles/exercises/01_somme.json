@@ -1,0 +1,22 @@
+{
+  "id": "06_boucles.somme",
+  "type": "write",
+  "title": "Somme de 1 a 10",
+  "instructions": "Calcule la somme des entiers de 1 a 10 (inclus) et affiche le resultat (55).",
+  "starter_code": "total = 0\n",
+  "hints": [
+    "Utilise for i in range(1, 11).",
+    "A chaque tour : total = total + i.",
+    "Affiche total apres la boucle."
+  ],
+  "solution": "total = 0\nfor i in range(1, 11):\n    total = total + i\nprint(total)",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_equals",
+      "value": "55"
+    }
+  ]
+}

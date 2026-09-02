@@ -1,0 +1,16 @@
+{
+  "id": "01_hello_world.corriger_guillemets",
+  "type": "fix",
+  "title": "Corriger l'erreur",
+  "instructions": "Ce programme contient une erreur : il manque les guillemets autour du texte. Corrige-le pour qu'il affiche `Salut`.",
+  "starter_code": "print(Salut)\n",
+  "hints": [
+    "Lis le message d'erreur : NameError signifie que Python cherche une variable qui n'existe pas.",
+    "Le texte doit etre une chaine de caracteres, donc entoure de guillemets."
+  ],
+  "solution": "print(\"Salut\")",
+  "checks": [
+    { "kind": "no_error", "message": "Plus d'erreur a l'execution" },
+    { "kind": "stdout_equals", "value": "Salut" }
+  ]
+}

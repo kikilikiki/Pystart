@@ -1,0 +1,12 @@
+{
+  "title": "02 — Variables",
+  "description": "Une variable est une etiquette posee sur une valeur. On apprend a creer des variables, a les afficher et a les reutiliser.",
+  "level": "debutant",
+  "order": 2,
+  "objectives": [
+    "Creer une variable avec =",
+    "Afficher la valeur d'une variable",
+    "Combiner du texte et des variables"
+  ],
+  "prerequisites": ["01 — Hello World"]
+}

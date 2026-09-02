@@ -1,0 +1,22 @@
+{
+  "id": "03_types.conversion",
+  "type": "fix",
+  "title": "Additionner un age",
+  "instructions": "Ce programme plante avec une TypeError. Corrige-le pour qu'il affiche `Dans 5 ans tu auras 25 ans`.",
+  "starter_code": "age = \"20\"\nprint(\"Dans 5 ans tu auras \" + (age + 5) + \" ans\")\n",
+  "hints": [
+    "age contient du texte \"20\", pas le nombre 20.",
+    "Convertis age avec int(age).",
+    "Puis reconvertis le total en texte avec str(...)."
+  ],
+  "solution": "age = \"20\"\ntotal = int(age) + 5\nprint(\"Dans 5 ans tu auras \" + str(total) + \" ans\")",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_equals",
+      "value": "Dans 5 ans tu auras 25 ans"
+    }
+  ]
+}

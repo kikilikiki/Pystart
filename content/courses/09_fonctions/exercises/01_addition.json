@@ -1,0 +1,25 @@
+{
+  "id": "09_fonctions.addition",
+  "type": "complete",
+  "title": "Completer une fonction",
+  "instructions": "Complete la fonction `addition` pour qu'elle renvoie la somme de a et b. Le programme doit afficher `7`.",
+  "starter_code": "def addition(a, b):\n    return ____\n\nprint(addition(3, 4))\n",
+  "hints": [
+    "La somme de a et b s'ecrit a + b.",
+    "Remplace ____ par a + b."
+  ],
+  "solution": "def addition(a, b):\n    return a + b\n\nprint(addition(3, 4))",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_equals",
+      "value": "7"
+    },
+    {
+      "kind": "source_not_contains",
+      "value": "____"
+    }
+  ]
+}

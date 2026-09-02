@@ -1,0 +1,14 @@
+{
+  "title": "03 — Types de donnees",
+  "description": "Chaque valeur a un type : texte (str), entier (int), nombre a virgule (float), booleen (bool). On apprend a les reconnaitre et a les convertir.",
+  "level": "debutant",
+  "order": 3,
+  "objectives": [
+    "Distinguer str, int, float, bool",
+    "Utiliser type()",
+    "Convertir avec int(), float(), str()"
+  ],
+  "prerequisites": [
+    "02 — Variables"
+  ]
+}

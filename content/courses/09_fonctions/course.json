@@ -1,0 +1,14 @@
+{
+  "title": "09 — Fonctions",
+  "description": "Une fonction est un bloc de code reutilisable, avec un nom, des parametres et parfois une valeur de retour.",
+  "level": "intermediaire",
+  "order": 9,
+  "objectives": [
+    "Definir une fonction avec def",
+    "Passer des parametres",
+    "Renvoyer une valeur avec return"
+  ],
+  "prerequisites": [
+    "06 — Boucles"
+  ]
+}

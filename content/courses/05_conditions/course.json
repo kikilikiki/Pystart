@@ -1,0 +1,14 @@
+{
+  "title": "05 — Conditions",
+  "description": "if / elif / else permettent au programme de prendre des decisions selon les situations.",
+  "level": "debutant",
+  "order": 5,
+  "objectives": [
+    "Ecrire un if / else",
+    "Utiliser les comparaisons ==, !=, <, >, <=, >=",
+    "Enchainer avec elif"
+  ],
+  "prerequisites": [
+    "04 — Entrees utilisateur"
+  ]
+}

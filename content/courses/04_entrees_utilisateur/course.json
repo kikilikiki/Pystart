@@ -1,0 +1,14 @@
+{
+  "title": "04 — Entrees utilisateur",
+  "description": "input() permet de demander une information a la personne qui utilise le programme.",
+  "level": "debutant",
+  "order": 4,
+  "objectives": [
+    "Lire une saisie avec input()",
+    "Comprendre qu'input() renvoie toujours du texte",
+    "Convertir la saisie en nombre"
+  ],
+  "prerequisites": [
+    "03 — Types de donnees"
+  ]
+}

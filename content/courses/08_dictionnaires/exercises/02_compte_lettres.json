@@ -1,0 +1,17 @@
+{
+  "id": "08_dictionnaires.compte_lettres",
+  "type": "write",
+  "title": "Compter les lettres",
+  "instructions": "Pour le mot `mot = \"ananas\"`, construis un dictionnaire qui compte chaque lettre, puis affiche le nombre de `a` (3).",
+  "starter_code": "mot = \"ananas\"\ncompte = {}\n",
+  "hints": [
+    "Parcours chaque lettre : for lettre in mot.",
+    "compte[lettre] = compte.get(lettre, 0) + 1",
+    "Affiche compte[\"a\"]."
+  ],
+  "solution": "mot = \"ananas\"\ncompte = {}\nfor lettre in mot:\n    compte[lettre] = compte.get(lettre, 0) + 1\nprint(compte[\"a\"])",
+  "checks": [
+    { "kind": "no_error" },
+    { "kind": "stdout_equals", "value": "3" }
+  ]
+}

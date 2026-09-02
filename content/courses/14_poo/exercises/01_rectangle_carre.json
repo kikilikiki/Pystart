@@ -1,0 +1,26 @@
+{
+  "id": "14_poo.rectangle_carre",
+  "type": "write",
+  "title": "Rectangle et Carre",
+  "instructions": "Ecris une classe `Rectangle(largeur, hauteur)` avec une methode `aire()`. Puis une classe `Carre(cote)` qui herite de Rectangle. Le programme doit afficher l'aire d'un Carre(5), soit `25`.",
+  "starter_code": "",
+  "hints": [
+    "Rectangle.__init__ stocke self.largeur et self.hauteur.",
+    "aire() renvoie self.largeur * self.hauteur.",
+    "Carre.__init__ appelle super().__init__(cote, cote)."
+  ],
+  "solution": "class Rectangle:\n    def __init__(self, largeur, hauteur):\n        self.largeur = largeur\n        self.hauteur = hauteur\n\n    def aire(self):\n        return self.largeur * self.hauteur\n\nclass Carre(Rectangle):\n    def __init__(self, cote):\n        super().__init__(cote, cote)\n\nprint(Carre(5).aire())",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_equals",
+      "value": "25"
+    },
+    {
+      "kind": "source_contains",
+      "value": "super()"
+    }
+  ]
+}

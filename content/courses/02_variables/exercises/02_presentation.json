@@ -1,0 +1,16 @@
+{
+  "id": "02_variables.presentation",
+  "type": "write",
+  "title": "Se presenter",
+  "instructions": "Cree deux variables : `prenom` (avec ton prenom) et `ville` (avec ta ville). Puis affiche une phrase de la forme `Je m'appelle X et j'habite a Y`.",
+  "starter_code": "prenom = \"\"\nville = \"\"\n",
+  "hints": [
+    "Remplis d'abord les deux variables avec du texte entre guillemets.",
+    "Utilise une f-string : f\"Je m'appelle {prenom} et j'habite a {ville}\"."
+  ],
+  "solution": "prenom = \"Sam\"\nville = \"Lyon\"\nprint(f\"Je m'appelle {prenom} et j'habite a {ville}\")",
+  "checks": [
+    { "kind": "no_error" },
+    { "kind": "stdout_matches", "value": "Je m'appelle .+ et j'habite a .+", "message": "La phrase a le bon format" }
+  ]
+}

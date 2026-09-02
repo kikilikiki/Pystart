@@ -1,0 +1,14 @@
+{
+  "title": "12 — Exceptions",
+  "description": "Gerer proprement les erreurs avec try / except, sans masquer les vrais problemes.",
+  "level": "intermediaire",
+  "order": 12,
+  "objectives": [
+    "Attraper une exception precise",
+    "Utiliser try / except / else / finally",
+    "Eviter le except nu"
+  ],
+  "prerequisites": [
+    "09 — Fonctions"
+  ]
+}

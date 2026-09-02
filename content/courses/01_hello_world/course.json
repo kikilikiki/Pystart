@@ -1,0 +1,13 @@
+{
+  "title": "01 — Hello World",
+  "description": "Ton tout premier programme Python. On decouvre ce qu'est Python, un programme, la fonction print(), les chaines de caracteres et les commentaires.",
+  "level": "debutant",
+  "order": 1,
+  "objectives": [
+    "Comprendre ce qu'est un programme",
+    "Afficher du texte avec print()",
+    "Reconnaitre une chaine de caracteres",
+    "Ecrire un commentaire"
+  ],
+  "prerequisites": []
+}

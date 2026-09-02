@@ -1,0 +1,23 @@
+{
+  "id": "03_types.prediction_type",
+  "type": "predict",
+  "title": "Quel est le resultat ?",
+  "instructions": "Observe ce programme :\n\n```python\nx = 3\ny = 2\nprint(x / y)\n```\n\nQue va-t-il afficher ?",
+  "choices": [
+    "1",
+    "1.5",
+    "1.0",
+    "Une erreur"
+  ],
+  "solution": "En Python, l'operateur / renvoie toujours un float. 3 / 2 vaut donc 1.5.",
+  "hints": [
+    "La division / donne un nombre a virgule.",
+    "3 divise par 2..."
+  ],
+  "checks": [
+    {
+      "kind": "choice_equals",
+      "value": "1.5"
+    }
+  ]
+}

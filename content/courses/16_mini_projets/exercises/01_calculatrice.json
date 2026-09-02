@@ -1,0 +1,22 @@
+{
+  "id": "16_mini_projets.calculatrice",
+  "type": "project",
+  "title": "Projet A — Calculatrice",
+  "instructions": "Ecris une fonction `calcul(a, operateur, b)` qui renvoie le resultat pour les operateurs `+`, `-`, `*`, `/`. Pour une division par zero, renvoie la chaine `\"erreur\"`. Le programme de test doit afficher :\n\n```\n7\n12\n2.5\nerreur\n```\n\nen appelant calcul(3, \"+\", 4), calcul(3, \"*\", 4), calcul(5, \"/\", 2), calcul(5, \"/\", 0).",
+  "starter_code": "def calcul(a, operateur, b):\n    # a toi de jouer\n    pass\n\nprint(calcul(3, \"+\", 4))\nprint(calcul(3, \"*\", 4))\nprint(calcul(5, \"/\", 2))\nprint(calcul(5, \"/\", 0))\n",
+  "hints": [
+    "Utilise if / elif pour comparer operateur a chaque symbole.",
+    "Pour la division, verifie d'abord if b == 0: return \"erreur\".",
+    "Chaque branche fait un return du bon calcul."
+  ],
+  "solution": "def calcul(a, operateur, b):\n    if operateur == \"+\":\n        return a + b\n    if operateur == \"-\":\n        return a - b\n    if operateur == \"*\":\n        return a * b\n    if operateur == \"/\":\n        if b == 0:\n            return \"erreur\"\n        return a / b\n    return \"operateur inconnu\"\n\nprint(calcul(3, \"+\", 4))\nprint(calcul(3, \"*\", 4))\nprint(calcul(5, \"/\", 2))\nprint(calcul(5, \"/\", 0))",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_equals",
+      "value": "7\n12\n2.5\nerreur"
+    }
+  ]
+}

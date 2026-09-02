@@ -1,0 +1,14 @@
+{
+  "title": "14 — Programmation orientee objet",
+  "description": "Aller plus loin : encapsulation, methodes qui collaborent, et heritage entre classes.",
+  "level": "avance",
+  "order": 14,
+  "objectives": [
+    "Faire collaborer plusieurs methodes",
+    "Comprendre l'heritage",
+    "Redefinir une methode (super())"
+  ],
+  "prerequisites": [
+    "13 — Classes"
+  ]
+}

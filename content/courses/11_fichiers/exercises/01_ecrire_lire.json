@@ -1,0 +1,21 @@
+{
+  "id": "11_fichiers.ecrire_lire",
+  "type": "write",
+  "title": "Aller-retour fichier",
+  "instructions": "Ecris `Pystart` dans un fichier `test.txt`, puis relis ce fichier et affiche son contenu.",
+  "starter_code": "",
+  "hints": [
+    "Ouvre en mode \"w\" pour ecrire, puis en mode \"r\" pour lire.",
+    "Utilise deux blocs with l'un apres l'autre."
+  ],
+  "solution": "with open(\"test.txt\", \"w\", encoding=\"utf-8\") as f:\n    f.write(\"Pystart\")\n\nwith open(\"test.txt\", \"r\", encoding=\"utf-8\") as f:\n    print(f.read())",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_contains",
+      "value": "Pystart"
+    }
+  ]
+}

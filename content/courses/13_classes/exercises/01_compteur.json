@@ -1,0 +1,25 @@
+{
+  "id": "13_classes.compteur",
+  "type": "complete",
+  "title": "Une classe Compteur",
+  "instructions": "Complete la classe `Compteur` : `incrementer()` doit ajouter 1 a self.valeur. Le programme doit afficher `2`.",
+  "starter_code": "class Compteur:\n    def __init__(self):\n        self.valeur = 0\n\n    def incrementer(self):\n        ____\n\nc = Compteur()\nc.incrementer()\nc.incrementer()\nprint(c.valeur)\n",
+  "hints": [
+    "Tu veux modifier self.valeur.",
+    "self.valeur = self.valeur + 1"
+  ],
+  "solution": "class Compteur:\n    def __init__(self):\n        self.valeur = 0\n\n    def incrementer(self):\n        self.valeur = self.valeur + 1\n\nc = Compteur()\nc.incrementer()\nc.incrementer()\nprint(c.valeur)",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_equals",
+      "value": "2"
+    },
+    {
+      "kind": "source_not_contains",
+      "value": "____"
+    }
+  ]
+}

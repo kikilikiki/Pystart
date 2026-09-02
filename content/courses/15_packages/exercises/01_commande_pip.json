@@ -1,0 +1,23 @@
+{
+  "id": "15_packages.commande_pip",
+  "type": "predict",
+  "title": "La bonne commande",
+  "instructions": "Quelle commande installe proprement le paquet `requests` pour l'interpreteur courant ?",
+  "choices": [
+    "pip install requests",
+    "python -m pip install requests",
+    "install requests",
+    "import requests"
+  ],
+  "solution": "python -m pip install requests garantit qu'on installe dans le Python que l'on utilise vraiment. `pip` seul peut pointer ailleurs.",
+  "hints": [
+    "On veut etre sur du bon interpreteur.",
+    "La forme python -m pip ... est recommandee."
+  ],
+  "checks": [
+    {
+      "kind": "choice_equals",
+      "value": "python -m pip install requests"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "06_boucles.table",
+  "type": "write",
+  "title": "Table de multiplication",
+  "instructions": "Affiche la table de 7, de `7 x 1 = 7` jusqu'a `7 x 10 = 70`, une ligne par resultat.",
+  "starter_code": "",
+  "hints": [
+    "Boucle for i in range(1, 11).",
+    "Affiche f\"7 x {i} = {7 * i}\"."
+  ],
+  "solution": "for i in range(1, 11):\n    print(f\"7 x {i} = {7 * i}\")",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_contains",
+      "value": "7 x 1 = 7"
+    },
+    {
+      "kind": "stdout_contains",
+      "value": "7 x 10 = 70"
+    }
+  ]
+}

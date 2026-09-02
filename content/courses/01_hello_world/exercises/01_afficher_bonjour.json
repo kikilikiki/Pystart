@@ -1,0 +1,17 @@
+{
+  "id": "01_hello_world.afficher_bonjour",
+  "type": "write",
+  "title": "Afficher Bonjour",
+  "instructions": "Ecris un programme qui affiche exactement `Bonjour !` dans le terminal.",
+  "starter_code": "# Ecris ton code ici\n",
+  "hints": [
+    "Utilise la fonction print().",
+    "Le texte a afficher doit etre entoure de guillemets : \"Bonjour !\".",
+    "Ecris exactement : print(\"Bonjour !\")"
+  ],
+  "solution": "print(\"Bonjour !\")",
+  "checks": [
+    { "kind": "no_error", "message": "Le programme s'execute sans erreur" },
+    { "kind": "stdout_equals", "value": "Bonjour !", "message": "La sortie est exactement \"Bonjour !\"" }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "12_exceptions.division",
+  "type": "write",
+  "title": "Division protegee",
+  "instructions": "Ecris une fonction `diviser(a, b)` qui renvoie a / b, mais renvoie la chaine `\"impossible\"` si b vaut 0 (attrape ZeroDivisionError). Teste avec diviser(10, 2) puis diviser(1, 0), un resultat par ligne.",
+  "starter_code": "",
+  "hints": [
+    "Mets return a / b dans un try.",
+    "except ZeroDivisionError: return \"impossible\".",
+    "print(diviser(10, 2)) puis print(diviser(1, 0))."
+  ],
+  "solution": "def diviser(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return \"impossible\"\n\nprint(diviser(10, 2))\nprint(diviser(1, 0))",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_equals",
+      "value": "5.0\nimpossible"
+    },
+    {
+      "kind": "source_contains",
+      "value": "ZeroDivisionError"
+    }
+  ]
+}

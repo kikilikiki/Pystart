@@ -1,0 +1,23 @@
+{
+  "id": "05_conditions.prediction",
+  "type": "predict",
+  "title": "Que s'affiche-t-il ?",
+  "instructions": "```python\nx = 5\nif x > 10:\n    print(\"A\")\nelif x > 3:\n    print(\"B\")\nelif x > 0:\n    print(\"C\")\n```",
+  "choices": [
+    "A",
+    "B",
+    "C",
+    "B puis C"
+  ],
+  "solution": "Python s'arrete au PREMIER elif vrai. x > 3 est vrai, donc il affiche B et sort du if.",
+  "hints": [
+    "Python teste dans l'ordre.",
+    "Il s'arrete des qu'un cas est vrai."
+  ],
+  "checks": [
+    {
+      "kind": "choice_equals",
+      "value": "B"
+    }
+  ]
+}

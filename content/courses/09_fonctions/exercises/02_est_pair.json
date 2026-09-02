@@ -1,0 +1,21 @@
+{
+  "id": "09_fonctions.est_pair",
+  "type": "write",
+  "title": "Fonction est_pair",
+  "instructions": "Ecris une fonction `est_pair(n)` qui renvoie True si n est pair, False sinon. Le programme doit afficher :\n\n```\nTrue\nFalse\n```\n\nen testant est_pair(4) puis est_pair(7).",
+  "starter_code": "",
+  "hints": [
+    "return n % 2 == 0 suffit.",
+    "Ensuite print(est_pair(4)) et print(est_pair(7))."
+  ],
+  "solution": "def est_pair(n):\n    return n % 2 == 0\n\nprint(est_pair(4))\nprint(est_pair(7))",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_equals",
+      "value": "True\nFalse"
+    }
+  ]
+}

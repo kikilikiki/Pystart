@@ -1,0 +1,22 @@
+{
+  "id": "04_entrees_utilisateur.double",
+  "type": "write",
+  "title": "Le double d'un nombre",
+  "instructions": "Demande un nombre entier, puis affiche son double.\n\nPour le test, la saisie sera `7` et la sortie attendue contient `14`.",
+  "starter_code": "",
+  "stdin": "7\n",
+  "hints": [
+    "input() renvoie du texte : convertis avec int().",
+    "Le double, c'est nombre * 2."
+  ],
+  "solution": "n = int(input(\"Un nombre : \"))\nprint(n * 2)",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_contains",
+      "value": "14"
+    }
+  ]
+}

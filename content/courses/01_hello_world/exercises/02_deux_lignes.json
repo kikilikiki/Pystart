@@ -1,0 +1,16 @@
+{
+  "id": "01_hello_world.deux_lignes",
+  "type": "write",
+  "title": "Afficher deux lignes",
+  "instructions": "Affiche `Bonjour` sur la premiere ligne, puis `Bienvenue dans Pystart` sur la deuxieme ligne.",
+  "starter_code": "",
+  "hints": [
+    "Un appel a print() affiche une ligne, puis passe a la ligne suivante.",
+    "Tu peux ecrire deux instructions print(), l'une sous l'autre."
+  ],
+  "solution": "print(\"Bonjour\")\nprint(\"Bienvenue dans Pystart\")",
+  "checks": [
+    { "kind": "no_error" },
+    { "kind": "stdout_equals", "value": "Bonjour\nBienvenue dans Pystart" }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "10_modules.moyenne",
+  "type": "write",
+  "title": "Moyenne d'une liste",
+  "instructions": "Avec le module statistics, affiche la moyenne de `notes = [12, 15, 9, 18]` (13.5).",
+  "starter_code": "import statistics\nnotes = [12, 15, 9, 18]\n",
+  "hints": [
+    "statistics.mean(liste) calcule la moyenne."
+  ],
+  "solution": "import statistics\nnotes = [12, 15, 9, 18]\nprint(statistics.mean(notes))",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_contains",
+      "value": "13.5"
+    }
+  ]
+}

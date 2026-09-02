@@ -1,0 +1,14 @@
+{
+  "title": "11 — Fichiers",
+  "description": "Lire et ecrire des fichiers texte avec open() et le bloc with.",
+  "level": "intermediaire",
+  "order": 11,
+  "objectives": [
+    "Ecrire dans un fichier",
+    "Lire un fichier",
+    "Utiliser with pour fermer automatiquement"
+  ],
+  "prerequisites": [
+    "07 — Listes"
+  ]
+}

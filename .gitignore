@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Environnements virtuels
+.venv/
+venv/
+env/
+
+# Build / distribution
+build/
+dist/
+/*.spec
+*.spec.bak
+release/
+*.exe
+
+# Donnees locales de developpement (jamais commitees)
+*.db
+*.sqlite3
+user-data/
+.pystart-dev/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

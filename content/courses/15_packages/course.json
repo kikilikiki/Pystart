@@ -1,0 +1,14 @@
+{
+  "title": "15 — Packages et dependances",
+  "description": "Installer et utiliser des bibliotheques externes avec pip, dans un environnement isole.",
+  "level": "avance",
+  "order": 15,
+  "objectives": [
+    "Comprendre pip et PyPI",
+    "Installer un paquet depuis Pystart",
+    "Comprendre l'interet d'un environnement virtuel"
+  ],
+  "prerequisites": [
+    "10 — Modules"
+  ]
+}

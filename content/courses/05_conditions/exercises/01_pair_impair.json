@@ -1,0 +1,29 @@
+{
+  "id": "05_conditions.pair_impair",
+  "type": "write",
+  "title": "Pair ou impair",
+  "instructions": "Demande un nombre entier et affiche `pair` s'il est pair, `impair` sinon.\n\nPour le test, la saisie sera `4`.",
+  "starter_code": "",
+  "stdin": "4\n",
+  "hints": [
+    "Un nombre est pair si le reste de sa division par 2 est 0.",
+    "L'operateur reste (modulo) s'ecrit %.",
+    "if n % 2 == 0: ..."
+  ],
+  "solution": "n = int(input(\"Nombre : \"))\nif n % 2 == 0:\n    print(\"pair\")\nelse:\n    print(\"impair\")",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_matches",
+      "value": "\\bpair\\b",
+      "message": "Le programme affiche \"pair\""
+    },
+    {
+      "kind": "stdout_not_contains",
+      "value": "impair",
+      "message": "Pour 4, il n'affiche pas \"impair\""
+    }
+  ]
+}

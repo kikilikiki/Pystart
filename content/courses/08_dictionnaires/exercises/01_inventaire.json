@@ -1,0 +1,21 @@
+{
+  "id": "08_dictionnaires.inventaire",
+  "type": "modify",
+  "title": "Mettre a jour un stock",
+  "instructions": "Le dictionnaire `stock` compte des objets. Ajoute 3 `potion` (il y en a deja 2) puis affiche le nombre de potions (5).",
+  "starter_code": "stock = {\"epee\": 1, \"potion\": 2}\n\nprint(stock[\"potion\"])\n",
+  "hints": [
+    "Tu peux ecrire stock[\"potion\"] = stock[\"potion\"] + 3.",
+    "Puis affiche stock[\"potion\"]."
+  ],
+  "solution": "stock = {\"epee\": 1, \"potion\": 2}\nstock[\"potion\"] = stock[\"potion\"] + 3\nprint(stock[\"potion\"])",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_equals",
+      "value": "5"
+    }
+  ]
+}

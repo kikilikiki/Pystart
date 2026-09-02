@@ -1,0 +1,22 @@
+{
+  "id": "04_entrees_utilisateur.bonjour_nom",
+  "type": "write",
+  "title": "Demander le prenom",
+  "instructions": "Demande le prenom avec `input(\"Prenom : \")` puis affiche `Bonjour <prenom> !`.\n\nPour le test, la reponse fournie sera `Alice`.",
+  "starter_code": "",
+  "stdin": "Alice\n",
+  "hints": [
+    "Range le resultat d'input() dans une variable.",
+    "Puis print(f\"Bonjour {prenom} !\")."
+  ],
+  "solution": "prenom = input(\"Prenom : \")\nprint(f\"Bonjour {prenom} !\")",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_contains",
+      "value": "Bonjour Alice !"
+    }
+  ]
+}

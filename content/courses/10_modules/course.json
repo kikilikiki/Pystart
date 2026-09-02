@@ -1,0 +1,14 @@
+{
+  "title": "10 — Modules",
+  "description": "Un module est une boite a outils prete a l'emploi. On l'importe avec import.",
+  "level": "intermediaire",
+  "order": 10,
+  "objectives": [
+    "Importer un module standard",
+    "Utiliser math et random",
+    "Comprendre from ... import ..."
+  ],
+  "prerequisites": [
+    "09 — Fonctions"
+  ]
+}

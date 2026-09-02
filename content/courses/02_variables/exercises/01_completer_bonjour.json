@@ -1,0 +1,17 @@
+{
+  "id": "02_variables.completer_bonjour",
+  "type": "modify",
+  "title": "Bonjour Alice",
+  "instructions": "Modifie le programme pour qu'il affiche `Bonjour Alice` (sur une seule ligne).",
+  "starter_code": "name = \"Alice\"\n\nprint(\"Bonjour\")\n",
+  "hints": [
+    "Tu dois utiliser la variable name dans le print.",
+    "Avec une virgule : print(\"Bonjour\", name).",
+    "Ou avec une f-string : print(f\"Bonjour {name}\")."
+  ],
+  "solution": "name = \"Alice\"\n\nprint(\"Bonjour\", name)",
+  "checks": [
+    { "kind": "no_error" },
+    { "kind": "stdout_equals", "value": "Bonjour Alice" }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "title": "13 — Classes",
+  "description": "Une classe est un modele pour creer des objets qui regroupent des donnees et des comportements.",
+  "level": "avance",
+  "order": 13,
+  "objectives": [
+    "Definir une classe avec __init__",
+    "Creer des instances",
+    "Ajouter des methodes"
+  ],
+  "prerequisites": [
+    "09 — Fonctions"
+  ]
+}

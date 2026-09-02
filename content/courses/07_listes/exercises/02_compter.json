@@ -1,0 +1,22 @@
+{
+  "id": "07_listes.compter",
+  "type": "write",
+  "title": "Compter les mots courts",
+  "instructions": "On te donne `mots = [\"chat\", \"elephant\", \"chien\", \"ok\", \"souris\"]`. Affiche combien de mots ont 4 lettres ou moins.",
+  "starter_code": "mots = [\"chat\", \"elephant\", \"chien\", \"ok\", \"souris\"]\ncompte = 0\n",
+  "hints": [
+    "Parcours la liste avec for mot in mots.",
+    "len(mot) donne le nombre de lettres.",
+    "if len(mot) <= 4: compte = compte + 1"
+  ],
+  "solution": "mots = [\"chat\", \"elephant\", \"chien\", \"ok\", \"souris\"]\ncompte = 0\nfor mot in mots:\n    if len(mot) <= 4:\n        compte = compte + 1\nprint(compte)",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_equals",
+      "value": "2"
+    }
+  ]
+}

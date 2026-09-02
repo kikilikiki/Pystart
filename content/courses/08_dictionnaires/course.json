@@ -1,0 +1,14 @@
+{
+  "title": "08 — Dictionnaires",
+  "description": "Un dictionnaire associe des cles a des valeurs, comme un annuaire.",
+  "level": "debutant",
+  "order": 8,
+  "objectives": [
+    "Creer un dictionnaire",
+    "Lire et ecrire une valeur par sa cle",
+    "Parcourir les cles et les valeurs"
+  ],
+  "prerequisites": [
+    "07 — Listes"
+  ]
+}

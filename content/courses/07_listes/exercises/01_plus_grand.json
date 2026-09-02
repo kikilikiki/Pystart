@@ -1,0 +1,21 @@
+{
+  "id": "07_listes.plus_grand",
+  "type": "write",
+  "title": "Le plus grand",
+  "instructions": "On te donne `nombres = [4, 9, 1, 7, 3]`. Affiche le plus grand nombre de la liste (9).",
+  "starter_code": "nombres = [4, 9, 1, 7, 3]\n",
+  "hints": [
+    "Il existe une fonction integree max().",
+    "print(max(nombres))"
+  ],
+  "solution": "nombres = [4, 9, 1, 7, 3]\nprint(max(nombres))",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_equals",
+      "value": "9"
+    }
+  ]
+}

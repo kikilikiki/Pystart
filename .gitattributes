@@ -1,0 +1,8 @@
+# Normalisation des fins de ligne : LF dans le depot, conversion locale libre.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.ico binary
+*.pystart binary
+*.zip binary

@@ -1,0 +1,14 @@
+{
+  "title": "16 — Mini-projets",
+  "description": "Assembler tout ce que tu as appris dans des projets complets et progressifs.",
+  "level": "intermediaire",
+  "order": 16,
+  "objectives": [
+    "Structurer un programme complet",
+    "Combiner variables, conditions, boucles et fonctions",
+    "Tester son programme"
+  ],
+  "prerequisites": [
+    "09 — Fonctions"
+  ]
+}

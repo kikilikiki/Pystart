@@ -1,0 +1,21 @@
+{
+  "id": "10_modules.hypotenuse",
+  "type": "write",
+  "title": "Longueur de l'hypotenuse",
+  "instructions": "Un triangle rectangle a des cotes de 3 et 4. Utilise le module math pour afficher la longueur de l'hypotenuse (5.0).",
+  "starter_code": "import math\n",
+  "hints": [
+    "Theoreme de Pythagore : h = racine(3**2 + 4**2).",
+    "math.sqrt(x) calcule la racine carree."
+  ],
+  "solution": "import math\nprint(math.sqrt(3**2 + 4**2))",
+  "checks": [
+    {
+      "kind": "no_error"
+    },
+    {
+      "kind": "stdout_contains",
+      "value": "5.0"
+    }
+  ]
+}

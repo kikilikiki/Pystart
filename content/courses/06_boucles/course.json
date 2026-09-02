@@ -1,0 +1,14 @@
+{
+  "title": "06 — Boucles",
+  "description": "Les boucles for et while repetent des instructions. range() genere des suites de nombres.",
+  "level": "debutant",
+  "order": 6,
+  "objectives": [
+    "Repeter avec for",
+    "Utiliser range()",
+    "Repeter tant qu'une condition est vraie avec while"
+  ],
+  "prerequisites": [
+    "05 — Conditions"
+  ]
+}

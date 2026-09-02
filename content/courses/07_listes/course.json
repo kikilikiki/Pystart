@@ -1,0 +1,15 @@
+{
+  "title": "07 — Listes",
+  "description": "Une liste range plusieurs valeurs dans un ordre. On y accede par indice et on la parcourt avec for.",
+  "level": "debutant",
+  "order": 7,
+  "objectives": [
+    "Creer une liste",
+    "Acceder a un element par son indice",
+    "Ajouter avec append()",
+    "Parcourir avec for"
+  ],
+  "prerequisites": [
+    "06 — Boucles"
+  ]
+}
