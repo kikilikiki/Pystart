@@ -48,8 +48,9 @@ _A venir (dossier `assets/screenshots/`)._
 Aucun executable compile, aucun installeur : ce lanceur reste dans son
 dossier et utilise ton propre Python.
 
-1. Telecharge le depot (bouton **Code > Download ZIP** sur GitHub, ou
-   `git clone`) et decompresse-le.
+1. Telecharge `Pystart-Portable-X.Y.Z.zip` depuis la page
+   [Releases](https://github.com/kikilikiki/Pystart/releases) et decompresse-le
+   (ou clone/telecharge le depot entier : `Pystart.bat` est a la racine).
 2. Double-clique sur **`Pystart.bat`**.
    - Premier lancement : le script installe automatiquement les
      dependances dans un environnement local (`.pystart-venv`, ~1-2 min,

@@ -113,7 +113,17 @@ iscc scripts/Pystart.iss
 
 Produit `dist/Pystart-Setup-X.Y.Z.exe` (le numero vient de `app/__init__.py`).
 
-### 3. Release
+### 3. Archive portable (`Pystart.bat`)
+
+```bash
+python scripts/build_portable_zip.py
+```
+
+Produit `dist/Pystart-Portable-X.Y.Z.zip` : uniquement les sources +
+`Pystart.bat` (pas de compilation). C'est l'asset attache a la Release pour
+l'installation sans admin / sans alerte antivirus (voir Docs/installation.md).
+
+### 4. Release
 
 Voir la section suivante — c'est automatise par GitHub Actions au push d'un
 tag `vX.Y.Z`.

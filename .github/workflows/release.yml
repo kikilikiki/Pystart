@@ -62,14 +62,24 @@ jobs:
           /DMyAppVersion=${{ steps.version.outputs.version }}
           scripts\Pystart.iss
 
-      - name: Calculer le SHA-256
+      - name: Construire l'archive portable (Pystart.bat, sans admin ni alerte antivirus)
+        run: python scripts/build_portable_zip.py
+
+      - name: Calculer les SHA-256
         id: hash
         shell: bash
         run: |
-          F="dist/Pystart-Setup-${{ steps.version.outputs.version }}.exe"
-          H=$(sha256sum "$F" | cut -d' ' -f1)
-          echo "sha256=$H" >> "$GITHUB_OUTPUT"
-          echo "$H  Pystart-Setup-${{ steps.version.outputs.version }}.exe" > dist/SHA256SUMS.txt
+          V="${{ steps.version.outputs.version }}"
+          SETUP="dist/Pystart-Setup-$V.exe"
+          PORTABLE="dist/Pystart-Portable-$V.zip"
+          H_SETUP=$(sha256sum "$SETUP" | cut -d' ' -f1)
+          H_PORTABLE=$(sha256sum "$PORTABLE" | cut -d' ' -f1)
+          echo "sha256_setup=$H_SETUP" >> "$GITHUB_OUTPUT"
+          echo "sha256_portable=$H_PORTABLE" >> "$GITHUB_OUTPUT"
+          {
+            echo "$H_SETUP  Pystart-Setup-$V.exe"
+            echo "$H_PORTABLE  Pystart-Portable-$V.zip"
+          } > dist/SHA256SUMS.txt
 
       - name: Publier la GitHub Release
         uses: softprops/action-gh-release@v2
@@ -78,11 +88,29 @@ jobs:
           name: Pystart v${{ steps.version.outputs.version }}
           generate_release_notes: true
           body: |
-            Installeur Windows : `Pystart-Setup-${{ steps.version.outputs.version }}.exe`
+            ## Deux facons d'installer Pystart (Windows)
 
-            SHA-256: ${{ steps.hash.outputs.sha256 }}
+            ### Option A - `Pystart-Portable-${{ steps.version.outputs.version }}.zip` (recommande, sans droits admin, sans alerte antivirus)
+            Decompresse l'archive puis double-clique sur `Pystart.bat`. Utilise ton propre
+            Python (3.10+, installe automatiquement si absent via un lien vers python.org).
+            Aucun executable compile : pas d'alerte SmartScreen/antivirus, pas de droits
+            administrateur. Pas de mise a jour en un clic dans ce mode : retelecharge
+            l'archive a la prochaine version.
+
+            ### Option B - `Pystart-Setup-${{ steps.version.outputs.version }}.exe` (installeur classique)
+            Double-clique, suis l'assistant. Mise a jour en un clic ensuite (menu
+            *Aide > Mises a jour*). L'installeur n'etant pas signe numeriquement,
+            SmartScreen peut afficher "Editeur inconnu" : *Informations complementaires
+            > Executer quand meme*.
+
+            ### Verification (SHA-256)
+            ```
+            Pystart-Setup-${{ steps.version.outputs.version }}.exe      ${{ steps.hash.outputs.sha256_setup }}
+            Pystart-Portable-${{ steps.version.outputs.version }}.zip   ${{ steps.hash.outputs.sha256_portable }}
+            ```
 
             Voir le CHANGELOG pour le detail des changements.
           files: |
             dist/Pystart-Setup-${{ steps.version.outputs.version }}.exe
+            dist/Pystart-Portable-${{ steps.version.outputs.version }}.zip
             dist/SHA256SUMS.txt

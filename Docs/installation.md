@@ -11,8 +11,10 @@ Ce n'est pas un executable compile : c'est un script qui utilise ton propre
 Python. Rien n'est installe au niveau systeme, donc rien a signer et rien qui
 ressemble a un programme inconnu pour Windows Defender.
 
-1. Telecharge le depot : bouton **Code > Download ZIP** sur GitHub (ou
-   `git clone https://github.com/kikilikiki/Pystart.git`), puis decompresse.
+1. Telecharge `Pystart-Portable-X.Y.Z.zip` depuis
+   https://github.com/kikilikiki/Pystart/releases et decompresse-le
+   (ou clone le depot entier : `git clone
+   https://github.com/kikilikiki/Pystart.git` — `Pystart.bat` est a la racine).
 2. Double-clique sur `Pystart.bat`.
    - S'il ne trouve pas de Python 3.10+, il ouvre la page de telechargement
      officielle (https://www.python.org/downloads/) et s'arrete : installe
