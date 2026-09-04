@@ -8,6 +8,13 @@ https://github.com/kikilikiki/Pystart/releases
 Pystart **ne fait jamais `git pull`**. L'utilisateur final n'a pas besoin de
 Git, Python ni ligne de commande.
 
+> Ceci decrit le systeme de mise a jour de l'**installeur** (`Pystart-Setup-
+> X.Y.Z.exe`). En mode lanceur portable (`Pystart.bat`, voir
+> `Docs/installation.md`), il n'y a pas de mise a jour en un clic : on
+> retelecharge le depot (ou `git pull`) et on relance le script. C'est le
+> compromis choisi pour eviter tout executable compile non signe (donc toute
+> alerte SmartScreen/antivirus) et toute demande de droits administrateur.
+
 ```
 Pystart demarre
    |

@@ -43,7 +43,28 @@ _A venir (dossier `assets/screenshots/`)._
 
 ## Installation
 
-### Pour un utilisateur (Windows)
+### Option recommandee : `Pystart.bat` (sans droits admin, sans alerte antivirus)
+
+Aucun executable compile, aucun installeur : ce lanceur reste dans son
+dossier et utilise ton propre Python.
+
+1. Telecharge le depot (bouton **Code > Download ZIP** sur GitHub, ou
+   `git clone`) et decompresse-le.
+2. Double-clique sur **`Pystart.bat`**.
+   - Premier lancement : le script installe automatiquement les
+     dependances dans un environnement local (`.pystart-venv`, ~1-2 min,
+     connexion Internet necessaire), puis ouvre Pystart.
+   - Lancements suivants : demarrage direct.
+3. Si Python n'est pas installe, le script te redirige vers
+   https://www.python.org/downloads/ (coche *Add python.exe to PATH*).
+
+Rien n'est ecrit hors de ce dossier et de `%APPDATA%\Pystart` (tes donnees) :
+pas d'installation systeme, pas d'elevation de droits. Comme rien n'est un
+executable compile inconnu, Windows/l'antivirus ne l'affichent pas comme
+suspect. Pour mettre a jour : retelecharge le depot (ou `git pull`) et
+relance `Pystart.bat`.
+
+### Option installeur Windows (avec mise a jour automatique)
 
 1. Telecharge le fichier `Pystart-Setup-X.Y.Z.exe` depuis la page
    [Releases](https://github.com/kikilikiki/Pystart/releases).
@@ -51,7 +72,10 @@ _A venir (dossier `assets/screenshots/`)._
 3. Lance **Pystart** depuis le menu Demarrer.
 
 Les mises a jour suivantes se font **depuis l'application** (menu _Aide > Mises
-a jour_), sans rien retelecharger a la main.
+a jour_), sans rien retelecharger a la main. L'installeur n'etant pas signe
+numeriquement, Windows SmartScreen peut afficher un avertissement
+("Editeur inconnu") : clique *Informations complementaires > Executer quand
+meme*. Si tu preferes eviter ca, utilise l'option `Pystart.bat` ci-dessus.
 
 ### Depuis les sources (developpeurs)
 

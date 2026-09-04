@@ -8,6 +8,27 @@ et le projet suit le [versionnement semantique](https://semver.org/lang/fr/)
 
 ## [Non publie]
 
+### Added
+
+- `Pystart.bat` : lanceur portable sans installeur. Aucun executable compile
+  (donc aucune alerte SmartScreen/antivirus) et aucun droit administrateur :
+  le script detecte Python, cree un environnement virtuel local
+  (`.pystart-venv`) et installe les dependances au premier lancement.
+
+### Fixed
+
+- Bouton *Aide > Mises a jour* affichait "impossible de contacter GitHub"
+  quand le depot n'avait encore aucune release (HTTP 404 sur
+  `/releases/latest`, mal interprete comme une erreur reseau).
+- Changer d'exercice declenchait une boite de dialogue "remplacer le code ?"
+  a chaque fois. Chaque exercice garde maintenant son propre brouillon de
+  code (sauvegarde entre deux lancements).
+- Theme sombre : les panneaux de lecon/resultat (Markdown) restaient sur
+  fond blanc. Migration vers une vraie `QPalette` en plus du QSS.
+- CI : les tests echouaient a la collecte (`ModuleNotFoundError: No module
+  named 'app'`) car le workflow lancait `pytest` sans `python -m` ; ajout de
+  `pythonpath = ["."]` dans la configuration pytest.
+
 ## [0.0.1] - 2026-09-02
 
 ### Added
